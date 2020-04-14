@@ -1,0 +1,253 @@
+<!--<!DOCTYPE html>
+<html>
+    <head>
+        <title>RTO website</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    </head>
+    <body>
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+
+    </body>
+</html>-->
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="Images/logo1.jpg" type="image/jpg"/>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+      #panel-footer{
+        background-color:#404040;
+        border-color: #337ab7;
+        color: #FFFFFF;
+      
+      }
+      .vertical { 
+            border-left: 2px solid black; 
+            height: 85px; 
+            position:absolute; 
+            left: 30.5%; 
+            margin-top: 3mm;
+      }
+      @keyframes clockwise {
+          from {transform: rotate(0deg);}
+          to {transform: rotate(360deg);}
+      }
+      @keyframes anticlockwise {
+          from {transform: rotate(360deg);}
+          to {transform: rotate(0deg);}
+      }
+
+    </style>
+	<script src="search.js"></script>
+    <script>
+
+        rotate = {
+            clock:function(which)
+            {
+              if(which == 1)
+                img = document.getElementById('vahan');
+              else if(which == 2)
+                img = document.getElementById('sarathi');
+              img.style.animation = "clockwise 2s";
+
+            },
+            anticlock:function(which)
+            {
+              if(which == 1)
+                img = document.getElementById('vahan');
+              else if(which == 2)
+                img = document.getElementById('sarathi');
+              img.style.animation = "anticlockwise 2s";
+            }
+        }
+    </script>
+
+  <title>RTO | Home</title>
+
+  </head>
+  <body>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    
+
+    <div style="background-color:#00205c;height: 11mm;"><p style="text-align: center;color: white;padding: 5px;">Smart Step... For Digital India...</p></div>
+
+    <div class="logo-header-section">
+      <div class="container">
+          <div class="inline-section vertical-right-divider" style="float: left;">
+                  <div id="logo" style="width: 5cm;padding-top: 10%;" class="navbar-brand">
+                      <a href="index.html" title="Home">
+                          <img src="Images/logo2.png" class="emblem-resize" alt="Logo" ></a>
+                  </div>
+               
+          </div>
+          <div class = "vertical"></div> 
+          <div class="inline-section fix-width" style="margin-left: 6cm">
+              <div class="govt-india" style="font-size: 22px;padding-top: 2%;text-shadow: 2px 2px 2px red">
+                  Government of India 
+              </div>
+              <div class="slogan-name" style="font-size: 30px;font-weight: bolder;font-family: 'Times New Roman', Times, serif;text-shadow: 2px 2px 2px green">
+                  MINISTRY OF ROAD TRASPORT &amp; HIGHWAYS       
+              </div>
+          </div>
+      </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-light" style="margin-top: 5mm;background-color:#005a84 ;">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active" style="margin-left: 8cm;">
+              <a class="nav-link" href="index.html" id="item" style="color: white;text-shadow: 5px 5px 4px black">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" onclick="returnObj.setCookieFunction(1)" href="showContent.html" id="item" style="color: white;text-shadow: 5px 5px 4px black" >About Us</a>
+            </li>
+
+
+
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" style="color: white;text-shadow: 5px 5px 4px black" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Online services
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+             
+                <a class="dropdown-item" href="userlogin.html">License related services</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="rcstatus.html">Know your vehicle information</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="dlstatus.html">Know your license inforamtion</a>
+              </div>
+            </li>
+
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" style="color: white;text-shadow: 5px 5px 4px black" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Informational services
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+					<a class="dropdown-item" onclick="returnObj.setCookieFunction(2)" href="showContent.html">About Learner's License</a>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" onclick="returnObj.setCookieFunction(3)" href="showContent.html">About Permanent License</a>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" onclick="returnObj.setCookieFunction(4)" href="showContent.html">About Renewal of License</a>
+                  	<div class="dropdown-divider"></div>
+					<a class="dropdown-item" onclick="returnObj.setCookieFunction(5)" href="showContent.html">About Permanent Registration</a>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" href="aboutpermits.html">About permits</a>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" href="aboutfees.html">About Fees</a>
+                                        <div class="dropdown-divider"></div>
+					<a class="dropdown-item" href="test.html">Analytics</a>
+                </div>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="contactus.html" id="item" style="color: white;text-shadow: 5px 5px 4px black">Contact Us<span class="sr-only">(current)</span></a>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" style="color: white;text-shadow: 5px 5px 4px black" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Login
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="userlogin.html">User Login</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="alogin.html">Admin Login</a>
+                  
+   
+                </div>
+              </li>
+	      <li class="nav-item active" style="">
+              <a class="nav-link" href="user_signup.html" id="item" style="color: white;text-shadow: 5px 5px 4px black">Sign Up</a>
+            </li>
+	   
+
+          </ul>
+
+
+          <a id="pages">
+          <div class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" id="search" list="dd" onkeydown="obj.getTerm()" title="Enter the terms you wish to search for." placeholder="Search" aria-label="Search">
+            <datalist id="dd"></datalist>
+            <button class="btn btn-outline-success my-2 my-sm-0" onclick="returnObj.show()" style="background-color: black;">GO</button>
+          </div>
+        </a>
+        </div>
+      </nav>
+      <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel" style="padding-top: 5pt;">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+          <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+          <li data-target="#carouselExampleCaptions" data-slide-to="3"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="Images/image2.jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="Images/image3.jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              </div>
+          </div>
+          <div class="carousel-item">
+            <img src="Images/image4.jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              </div>
+          </div>
+          <div class="carousel-item">
+            <img src="Images/image5.jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              </div>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+      <div class="inline-section project-icon" style="background:linear-gradient(to right,  #ff0000 0%,#00ff00 100%);width: 100%;height: 2.5cm;">
+          <div style="padding-top: 10px;margin-left: 3in;float: left;">
+            <a href="sarathiservice.html"><img src="Images/logo7.png" id="vahan" onmousemove="rotate.clock(1)" onmouseout="rotate.anticlock(1)" width="67" height="68" alt="Vehicle Registration Related Services" /><p style="float: right;color: white;padding-top: 1.5mm;font-size:5mm;padding-left: 4mm;">Vehicle Registration<br>Related Services</p></a>
+          </div>
+          <div style="padding-top: 10px;padding-left: 10in;">
+            <a href="sarathiservice.html"><img src="Images/logo8.png" id="sarathi" onmousemove="rotate.clock(2)" onmouseout="rotate.anticlock(2)" width="67" height="68" alt="Driving License Related Services" /><p style="float: right;margin-right: 3.5in;font-size:5mm;color: white;padding-top: 1.5mm;">Driving License<br>Related Services</p></a>
+          </div>
+      </div>
+      
+      <footer class="page-footer font-small" id="panel-footer">
+        <div class="footer-copyright text-center py-1" style="font-size: 3mm;font-family: 'Times New Roman', Times, serif;">
+          Powered by web-tech project. All Rights Reserved.
+        </div>
+        <div class="footer-copyright text-center py-1" style="font-size: 3mm;font-family: 'Times New Roman', Times, serif;">
+          Copyright@2020
+        </div>
+        <div style="background-color: black;height: 11.5mm;text-align: right;font-style:italic;font-size: 3mm;padding: 3mm;">
+          Last updated : 30-03-2020
+        </div>
+      </footer>
+      
+
+  </body>
+</html>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+
+<channel>
+  <page>
+    <name>LL</name>
+    <heading>Learner's License</heading>
+    
+    <item>
+      <title>Need for a Driving Licence</title>
+      <description>No person shall drive a motor vehicle in any public place unless he holds an effective driving licence issued to him by the Licensing Authority, authorising him to drive the vehicle.</description>
+    </item>
+    <item>
+      <title>Licensing Authorities</title>
+      <description>The Joint Commissioner/ Deputy Commissioner and the Regional Transport Officers are the Licensing Authorities. The Administrative Officers and Motor Vehicle Inspectors are the Additional Licensing Authorities.</description>
+    </item>
+    <item>
+      <title>Age limit to obtain Driving Licence</title>
+      <description>An applicant who has completed sixteen years of age is eligible to apply for a driving licence to drive a motor cycle with engine capacity below 55 cc subject to the condition that the parent or guardian should furnish a declaration in the manner prescribed.</description>
+      <description>The applicant who has completed the age of eighteen years of age is eligible to apply for a driving licence to drive a motor vehicle other than a transport vehicle.</description>
+      <description>An applicant who has completed twenty years of age will be eligible for applying for a licence to drive a transport vehicle.</description>
+    </item>
+  </page>
+  
+  <page>
+    <name>PL</name> 
+    <heading>Permanent License</heading>
+    <item>
+      <title>About</title>
+      <description>The Facility of online slot booking for test of completence of driving licence has been provided. Please visit the website for scheduling an appointment.</description>
+    </item>
+
+    <item>
+      <title>PROCEDURE:</title>
+      <description>Schedule an appointment for the test of competence online by visiting the website or any RTO office where such facility exists. In other cases schedule an appointment directly at the Office Concerned.</description>
+      <description>An application in Form 4, for a permanent driving licence shall be made along with the Learners' Licence obtained for such class of vehicle.</description>
+      <description>The applicant who has held a valid Learners' Licence, for a period of at least 30 days, shall be competent to appear for the test of competence.</description>
+      <description>The test of competence will be conducted by the competent authority.</description>
+      <description>The applicant should bring a vehicle of the type to which the application relates.</description>
+      <description>The applicant should satisfy the officer conducting the test regarding his capability to drive the vehicle and his ability to perform the tasks specified in Rule-15(2) of the CMVR.</description>
+      <description>The candidate who passes the test of competence successfully will be issued with a driving licence and sent through speed post to the address funished.</description>
+      <description>Fees as prescribed along with user charges.</description>
+    </item>
+  </page>
+
+  <page>
+    <name>RL</name>
+    <heading>Renewal of License</heading>
+    <item>
+      <title>About</title>
+      <description>An application for renewal shall be entertained not more than one month before the date of expiry of the licence. If the application is late for more than five years after the date of expiry of the licence, the applicant should undergo all the formalities to obtain a fresh licence.</description>
+      <description>If the application for renewal is made previous to, or not more than 30 days after the date of expiry of the licence, the renewal will be made with effect from the date of its expiry. If the application is made more than 30 days after the date of expiry of the licence, the renewal will be made with effect from the date of receipt of proper application. In such cases a fee of Rs. 30/- will be realised.</description>
+    </item>
+
+    <item>
+      <title>Requirements</title>
+      <description>Driving Licence.</description>
+      <description>Application Form No.2.</description>
+      <description>Form No.1 (Self-declaration as to the physical fitness for Non-Transport Vehicles)</description>
+      <description>Form No. 1A (Medical Certificate for Transport Vehicles only).</description>
+      <description>Fees as prescribed along with user charges.</description>
+    </item>
+
+  </page>
+
+  <page>
+    <name>PR</name>
+    <heading>Permanent Registration</heading>
+    <item>
+      <title>About</title>
+      <description>As per CMVR, the vehicle can be driven or allowed to be driven in public place only after registration by registering authority as under the provision of section 39 of motor vehicle Act 1988. An application for registration of a motor vehicle is required to be made to the registering authority within a period of seven days from the date of taking delivery of such vehicle, excluding the period of journey.</description>
+    </item>
+
+    <item>
+      <title>Guidelines</title>
+      <description>Apply for permanent registration of a motor vehicle in Form 20 to the Registering Authority in whose jurisdiction the vehicle is</description>
+      <description>If the vehicle has been temporarily registered then apply before the temporary registration expires</description>
+      <description>Confirm the type of registration number (Fancy number/Choice number/General number).</description>
+      <description>Confirm about the usage requirement of HSRP/smart card</description>
+      <description>Pay appropriate fee as specified in Rule 81 of Central Motor Vehicle Rules 1989 depending on the choice of registration number and use of HSRP/smart card</description>
+      <description>Pay Tax as per Central Motor Vehicle Rules 1989 depending on the choice of registration number and use of HSRP/smart card</description>
+    </item>
+
+    <item>
+      <title>Documents required</title>
+      <description>Application in Form 20</description>
+      <description>Sales certificate in Form 21</description>
+      <description>Road worthiness certificate in Form 22 from the manufacturers (Form 22A from the Body builder)</description>
+      <description>Pollution under control certificate</description>
+      <description>Valid insurance certificate</description>
+      <description>Proof of address (Ration card, Electricity bill etc.)</description>
+      <description>Design approval copy of STA in case Trailer or Semi-Trailer</description>
+      <description>Custom's clearance certificate along with licence, and bond in case of imported vehicle</description>
+      <description>Temporary registration, if any</description>
+      <description>Permit proceedings in case of transport vehicle*</description>
+      <description>Municipal Corporation parking fee</description>
+      <description>Dealer and manufacturer invoice</description>
+    </item>
+
+  </page>
+
+  <page>
+    <name>about</name>
+    <heading>About Us</heading>
+    
+    <item>
+      <title>Our Vision</title>
+      <description>To improve the quality of service delivery to the citizen and the quality of work environment of the RTOs.</description>
+    </item>
+    <item>
+      <title>Our Mission</title>
+      <description>To automate all Vehicle Registration and Driving License related activities in transport authorities of country with introduction of smart card technology to handle issues like inter state transport vehicle movement and to create state and national level registers of vehicles/DL information</description>
+    </item>
+    <item>
+      <title>Our Objectives</title>
+      <description>Better services to Transport Department as well as citizen</description>
+      <description>Quick implementation of government policies from time to time</description>
+      <description>Improved image of Government and Department</description>
+      <description>Instant access of Vehicle/DL information to other government departments</description>
+    </item>
+  </page>
+</channel>
+
+</rss>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="Images/logo8.PNG" type="image/jpg"/>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+      #panel-footer{
+        background-color:#404040;
+        border-color: #337ab7;
+        color: #FFFFFF;
+      
+      }
+      
+      .vertical { 
+            border-left: 2px solid black; 
+            height: 85px; 
+            position:absolute; 
+            left: 31.4%; 
+            margin-top: 3mm;
+        }
+        th , td  {
+          border: 1px grey;
+          border-collapse: collapse;
+          height: 10mm;
+          padding-left: 10px;
+        }
+        table tr:nth-child(odd) {
+          background-color: #e6f9ff	;
+        }
+        table tr:nth-child(even) {
+          background-color: #ffffff;
+        }
+    </style>
+	
+
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular.min.js"></script>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+</head>
+<body ng-app="LL" ng-controller="ApplicantController" class="" > <br />
+
+   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    
+    <div style="background-color:#00205c;height: 11mm;"></div>
+    <div class="logo-header-section">
+		<div class="container">
+			<div class="inline-section vertical-right-divider" style="float: left;">
+					<div id="logo" style="width: 5cm;padding-top: 10%;" class="navbar-brand">
+						<a href="https://parivahan.gov.in/parivahan/en" title="Home">
+							<img src="Images/logo2.png" class="emblem-resize" alt="Logo" ></a>
+					</div>
+				 
+			</div>
+			<div class = "vertical"></div> 
+			<div class="inline-section fix-width" style="margin-left: 6cm">
+				<div class="govt-india" style="font-size: 22px;padding-top: 2%;">
+					Government of India 
+				</div>
+				<div class="slogan-name" style="font-size: 30px;font-weight: bolder;font-family: 'Times New Roman', Times, serif;">
+					MINISTRY OF ROAD TRASPORT &amp; HIGHWAYS       
+				</div>
+			</div>
+		</div>
+	  </div>
+	  
+	  <nav class="navbar navbar-expand-lg navbar-light" style="margin-top: 5mm;background-color:#005a84 ;">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active" style="margin-left: 6cm;">
+              <a class="nav-link" href="index.html" id="item" style="color: white;text-shadow: 5px 5px 4px black">Home</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+   
+
+
+
+
+    <h2 style="padding-left:350px;">Analytics</h2><br>
+    <form name="llform" class="form-horizontal" role="form" >
+      
+		<u><h4 style="padding-left:350px;">Get details about registrations by years:</h4></u>
+	
+	<br>
+        <div class="form-group">
+            <label for="year" class="col-sm-3 control-label">Year</label>
+            <div class="col-sm-5">
+                <select id="year" class="form-control" ng-model="Applicant.year" name="year" ng-required="true">
+                    <option value="2016">2016</option>
+                    <option value="2017">2017</option>
+                    <option value="2018">2018</option>
+                    <option value="2019">2019</option>
+                    <option value="2020">2020</option>
+                </select>
+                <span ng-show="llform.year.$touched && llform.year.$error.required">Year is required.</span><br />
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+	
+        <br>
+        
+
+        <input type="submit" value="Save" ng-click="submit()" class="btn btn-primary col-sm-offset-3" /> 
+        <input type="reset" value="Reset" ng-click="resetForm()" class="btn" /> <br/>
+         <br>
+         <br>
+
+	
+		<u><h4 style="padding-left:350px;">Get details about revenue by years:</h4></u>
+	
+	<br>
+	<div class="form-group">
+            <label for="year1" class="col-sm-3 control-label">Year</label>
+            <div class="col-sm-5">
+                <select id="year1" class="form-control" ng-model="Applicant.year1" name="year1" ng-required="true">
+                    <option value="2016">2016</option>
+                    <option value="2017">2017</option>
+                    <option value="2018">2018</option>
+                    <option value="2019">2019</option>
+                    <option value="2020">2020</option>
+                </select>
+                <span ng-show="llform.year1.$touched && llform.year1.$error.required">Year is required.</span><br />
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+	
+        <br>
+        
+        <input type="submit" value="Save" ng-click="submit1()" class="btn btn-primary col-sm-offset-3" /> 
+        <input type="reset" value="Reset" ng-click="resetForm()" class="btn" /> <br/>
+         <br>
+         <br>
+	
+		<u><h4 style="padding-left:350px;">Get comparision of no. of dl and ll applications in total:</h4></u>
+	
+	<br>
+         <input type="submit" value="Get Pie Information" ng-click="submit2()" class="btn btn-primary col-sm-offset-3" />
+         <br><br>
+	
+		<u><h4 style="padding-left:350px;">Get registration details across years :</h4></u>
+	
+	<br>
+         <input type="submit" value="Get registration details across years" ng-click="submit3()" class="btn btn-primary col-sm-offset-3" /><br><br>
+
+	
+        <u><h4 style="padding-left:350px;">Get revenue details across years:</h4></u>
+	
+	<br>
+         <input type="submit" value="Get revenue details across years" ng-click="submit4()" class="btn btn-primary col-sm-offset-3" />
+         
+
+
+    </form>
+    <script>
+     //1. create app module 
+        var LL = angular.module('LL', []);
+
+        //2. create controller
+        LL.controller("ApplicantController", function ($scope, $http) {
+  
+            //3. attach originalApplicant model object
+            $scope.originalApplicant = {
+                year:'2020',
+                year1:'2020'
+            };
+            /*$scope.age=$scope.Applicant.age;
+            console.log($scope.age);*/
+            
+
+            //4. copy originalApplicant to Applicant. Applicant will be bind to a form 
+            $scope.Applicant = angular.copy($scope.originalApplicant);
+
+            //5. create submitApplicantForm() function. This will be called when user submits the form
+            $scope.submit = function () {
+                
+
+                // send $http request to save Applicant
+                /*$http.get("http://127.0.0.1:5000/rcreg/2019").then(function(response){
+			$scope.div_placeholder=response.data;
+		});*/
+                $http.get("http://127.0.0.1:5000/rcreg/"+year.value).success(function(data,status,header,config){
+                     //alert(data)
+                });
+
+
+            };
+            $scope.submit1 = function () {
+                
+
+                // send $http request to save Applicant
+                /*$http.get("http://127.0.0.1:5000/rcreg/2019").then(function(response){
+			$scope.div_placeholder=response.data;
+		});*/
+                $http.get("http://127.0.0.1:5000/vahanrev/"+year.value).success(function(data,status,header,config){
+                     //alert(data)
+                });
+
+
+            };
+		$scope.submit2 = function () {
+                
+
+                // send $http request to save Applicant
+                /*$http.get("http://127.0.0.1:5000/rcreg/2019").then(function(response){
+			$scope.div_placeholder=response.data;
+		});*/
+                $http.get("http://127.0.0.1:5000/license/appln").success(function(data,status,header,config){
+                     //alert(data)
+                });
+
+
+            };
+            $scope.submit3 = function () {
+                
+
+                // send $http request to save Applicant
+                /*$http.get("http://127.0.0.1:5000/rcreg/2019").then(function(response){
+			$scope.div_placeholder=response.data;
+		});*/
+                $http.get("http://127.0.0.1:5000/rcreg/cmpyear").success(function(data,status,header,config){
+                     //alert(data)
+                });
+
+
+            };
+		$scope.submit4 = function () {
+                
+
+             
+                $http.get("http://127.0.0.1:5000/vahanrev/cmpyear").success(function(data,status,header,config){
+                     //alert(data)
+                });
+
+
+            };
+	 	 
+	
+
+            //6. create resetForm() function. This will be called on Reset button click.  
+            $scope.resetForm = function () {
+                $scope.Applicant = angular.copy($scope.OriginalApplicant);
+            };
+    });
+    
+    </script>   
+<br><br>
+<footer class="page-footer font-small" id="panel-footer">
+		<div class="footer-copyright text-center py-1" style="font-size: 3mm;font-family: 'Times New Roman', Times, serif;">
+		  Powered by web-tech project. All Rights Reserved.
+		</div>
+		<div class="footer-copyright text-center py-1" style="font-size: 3mm;font-family: 'Times New Roman', Times, serif;">
+		  Copyright@2020
+		</div>
+	</footer>
+
+
+</body>
+</html>

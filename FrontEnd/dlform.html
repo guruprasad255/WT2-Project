@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="Images/logo8.PNG" type="image/jpg"/>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+      #panel-footer{
+        background-color:#404040;
+        border-color: #337ab7;
+        color: #FFFFFF;
+      
+      }
+      
+      .vertical { 
+            border-left: 2px solid black; 
+            height: 85px; 
+            position:absolute; 
+            left: 31.4%; 
+            margin-top: 3mm;
+        }
+       
+    </style>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular.min.js"></script>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+</head>
+<body ng-app="DL" ng-controller="ApplicantController" class="" > <br />
+
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    
+    <div style="background-color:#00205c;height: 11mm;"></div>
+    <div class="logo-header-section">
+		<div class="container">
+			<div class="inline-section vertical-right-divider" style="float: left;">
+					<div id="logo" style="width: 5cm;padding-top: 10%;" class="navbar-brand">
+						<a href="https://parivahan.gov.in/parivahan/en" title="Home">
+							<img src="Images/logo2.png" class="emblem-resize" alt="Logo" ></a>
+					</div>
+				 
+			</div>
+			<div class = "vertical"></div> 
+			<div class="inline-section fix-width" style="margin-left: 6cm">
+				<div class="govt-india" style="font-size: 22px;padding-top: 2%;">
+					Government of India 
+				</div>
+				<div class="slogan-name" style="font-size: 30px;font-weight: bolder;font-family: 'Times New Roman', Times, serif;">
+					MINISTRY OF ROAD TRASPORT &amp; HIGHWAYS       
+				</div>
+			</div>
+		</div>
+	  </div>
+	  
+	  <nav class="navbar navbar-expand-lg navbar-light" style="margin-top: 5mm;background-color:#005a84 ;">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active" style="margin-left: 6cm;">
+              <a class="nav-link" href="index.html" id="item" style="color: white;text-shadow: 5px 5px 4px black">Home</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+
+
+    <h2 style="padding-left:350px;">Applicant Information:</h2><br>
+    <form name="dlform" class="form-horizontal" ng-submit="submitStudnetForm()" role="form">
+        <div class="form-group">
+            <label for="llnum" class="col-sm-3 control-label">LL NUMBER</label>
+            <div class="col-sm-4">
+                <input type="text" id="llnum" name="llnum" class="form-control" ng-model="Applicant.llnum" ng-required="true" ng-pattern="/^\d*$/" />
+                <span ng-show="dlform.llnum.$error.pattern">Not a valid LL number!</span>
+                <span ng-show="dlform.llnum.$touched && dlform.llnum.$error.required">Name is required.</span><br />
+            </div>
+            <div class="col-sm-5"></div>
+
+        </div>
+        
+        <div class="form-group">
+            <label for="dob" class="col-sm-3 control-label">DoB</label>
+            <div class="col-sm-4">
+                <input type="date" id="dob" name="dob" class="form-control" ng-model="Applicant.DoB" ng-required="true" />
+                <span ng-show="dlform.dob.$touched && dlform.dob.$error.required">Name is required.</span><br />
+            </div>
+            <div class="col-sm-5"></div>
+        </div>
+        <br>
+        <div id="div"></div>
+        
+        <br>
+        <br>
+        <input type="submit" value="Save" class="btn btn-primary col-sm-offset-3" /> 
+        <input type="reset" value="Reset" ng-click="resetForm()" class="btn" /> <br/>
+    </form>
+    <script>
+     //1. create app module 
+        var DL = angular.module('DL', []);
+
+        //2. create controller
+        DL.controller("ApplicantController", function ($scope, $http) {
+  
+            //3. attach originalApplicant model object
+            $scope.originalApplicant = {
+                llnum: '',
+                DoB: ''
+            };
+
+            //4. copy originalApplicant to Applicant. Applicant will be bind to a form 
+            $scope.Applicant = angular.copy($scope.originalApplicant);
+
+            //5. create submitApplicantForm() function. This will be called when user submits the form
+            $scope.submitStudnetForm = function () {
+
+                // send $http request to save Applicant
+                $http.post("http://127.0.0.1:5000/api/v1/DLReg",$scope.Applicant).success(function(data,status,header,config){
+                   alert(data);
+                });
+		              
+
+
+            };
+
+            //6. create resetForm() function. This will be called on Reset button click.  
+            $scope.resetForm = function () {
+                $scope.Applicant = angular.copy($scope.OriginalApplicant);
+            };
+    });
+    </script>
+	<br><br>
+
+
+
+   
+	 <footer class="page-footer font-small" id="panel-footer">
+		<div class="footer-copyright text-center py-1" style="font-size: 3mm;font-family: 'Times New Roman', Times, serif;">
+		  Powered by web-tech project. All Rights Reserved.
+		</div>
+		<div class="footer-copyright text-center py-1" style="font-size: 3mm;font-family: 'Times New Roman', Times, serif;">
+		  Copyright@2020
+		</div>
+	</footer>
+
+
+	
+
+</body>
+</html>

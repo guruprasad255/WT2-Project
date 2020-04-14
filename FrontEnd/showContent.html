@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="Images/logo4.PNG" type="image/jpg"/>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+      #panel-footer{
+        background-color:#404040;
+        border-color: #337ab7;
+        color: #FFFFFF;
+      
+      }
+      input[type=submit] {
+		    background-color:skyblue;
+		    color: white;
+		    border: none;
+		    border-radius: 4px;
+		    cursor: pointer;
+            width: 9%;
+            height: 11mm;
+	  }
+      .vertical { 
+            border-left: 2px solid black; 
+            height: 85px; 
+            position:absolute; 
+            left: 27.2%; 
+            margin-top: 3mm;
+        }
+	</style>
+    <title>Sarathi | Home</title>
+	<script src="search.js"></script>
+	<script>
+		var obj1 ={
+			id:0,
+			str:null,
+			xhr: new XMLHttpRequest(),
+			findFunction: function(){
+				var x = document.cookie;
+				var id = x.split('=')[1];
+				if(id==1){
+					str='about';
+
+				}
+				else if(id==2){
+					str='LL';
+
+				}
+				else if(id==3){
+					str='PL';
+
+				}
+				else if(id==4){
+					str='RL';
+
+				}
+				else if(id==5){
+					str='PR';
+
+				}
+				obj1.getData();
+			},
+			getData: function() {
+				//this.xhr.open("GET","getContent.php",true);
+				this.xhr.open("GET","http://127.0.0.1:5000/api/getXML",true);
+				this.xhr.onreadystatechange = this.showData;
+				this.xhr.send();
+			},
+			showData: function() {
+				if(this.readyState==4 && this.status==200){
+					parser = new DOMParser();
+					res = parser.parseFromString(JSON.parse(this.responseText),"text/xml");
+					//root=this.responseXML.documentElement;
+					root=res.documentElement;
+					var pages = root.getElementsByTagName("page");
+					for(var k=0;k<pages.length;k++){
+						if(pages[k].getElementsByTagName("name")[0].firstChild.nodeValue===str){
+							
+							var headings = root.getElementsByTagName("heading")[k].firstChild.nodeValue;
+							//var t = document.createElement("h1");
+							document.getElementById('headline').innerHTML = headings;
+							//t.innerHTML = headings+"<br>";
+							//document.body.appendChild(t);
+
+							var items = pages[k].getElementsByTagName("item");
+							
+							for(var i=0;i<items.length;i++){
+								var p = document.createElement("p");
+								var title = items[i].getElementsByTagName("title")[0].firstChild.nodeValue;
+								p.innerHTML=title+"<br>";
+								p.setAttribute('style','font-size:5mm');
+								p.setAttribute('style','font-weight:bold');
+								document.body.appendChild(p);
+									
+								var ul = document.createElement('ul');
+								var des = items[i].getElementsByTagName("description");
+								for(var j=0;j<des.length;j++)
+								{
+									var li = document.createElement('li');
+									li.innerHTML= items[i].getElementsByTagName("description")[j].firstChild.nodeValue+"<br>";
+									ul.appendChild(li);
+								}
+								var div = document.createElement('div');
+								div.appendChild(p);
+								div.appendChild(ul);
+								var maindiv = document.getElementById('maindiv');
+								maindiv.appendChild(div);
+							}
+						}
+					}
+					
+				}
+			}
+		}
+
+	</script>
+
+</head>
+  <body onload="obj1.findFunction()">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    
+    <div style="background-color:#00205c;height: 11mm;"></div>
+    <div class="logo-header-section">
+		<div class="container">
+			<div class="inline-section vertical-right-divider" style="float: left;">
+					<div id="logo" style="width: 5cm;padding-top: 10%;" class="navbar-brand">
+						<a href="https://parivahan.gov.in/parivahan/en" title="Home">
+							<img src="Images/logo2.png" class="emblem-resize" alt="Logo" ></a>
+					</div>
+				 
+			</div>
+			<div class = "vertical"></div> 
+			<div class="inline-section fix-width" style="margin-left: 6cm">
+				<div class="govt-india" style="font-size: 22px;padding-top: 2%;">
+					Government of India 
+				</div>
+				<div class="slogan-name" style="font-size: 30px;font-weight: bolder;font-family: 'Times New Roman', Times, serif;">
+					MINISTRY OF ROAD TRASPORT &amp; HIGHWAYS       
+				</div>
+			</div>
+		</div>
+	  </div>
+	  
+	  <nav class="navbar navbar-expand-lg navbar-light" style="margin-top: 5mm;background-color:#005a84 ;">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active" style="margin-left: 8cm;">
+              <a class="nav-link" href="index.html" id="item" style="color: white;text-shadow: 5px 5px 4px black">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" onclick="returnObj.setCookieFunction(1)" href="showContent.html" id="item" style="color: white;text-shadow: 5px 5px 4px black" >About Us</a>
+            </li>
+
+
+
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" style="color: white;text-shadow: 5px 5px 4px black" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Online services
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+             
+                <a class="dropdown-item" href="userlogin.html">License related services</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="rcstatus.html">Know your vehicle information</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="dlstatus.html">Know your license inforamtion</a>
+              </div>
+            </li>
+
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" style="color: white;text-shadow: 5px 5px 4px black" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Informational services
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+					<a class="dropdown-item" onclick="returnObj.setCookieFunction(2)" href="showContent.html">About Learner's License</a>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" onclick="returnObj.setCookieFunction(3)" href="showContent.html">About Permanent License</a>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" onclick="returnObj.setCookieFunction(4)" href="showContent.html">About Renewal of License</a>
+                  	<div class="dropdown-divider"></div>
+					<a class="dropdown-item" onclick="returnObj.setCookieFunction(5)" href="showContent.html">About Permanent Registration</a>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" href="aboutpermits.html">About permits</a>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" href="aboutfees.html">About Fees</a>
+                                        <div class="dropdown-divider"></div>
+					<a class="dropdown-item" href="test.html">Analytics</a>
+                </div>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="contactus.html" id="item" style="color: white;text-shadow: 5px 5px 4px black">Contact Us<span class="sr-only">(current)</span></a>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" style="color: white;text-shadow: 5px 5px 4px black" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Login
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="userlogin.html">User Login</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="alogin.html">Admin Login</a>
+                  
+                </div>
+              </li>
+          </ul>
+
+
+          <a id="pages">
+          <div class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" id="search" list="dd" onkeydown="obj.getTerm()" title="Enter the terms you wish to search for." placeholder="Search" aria-label="Search">
+            <datalist id="dd"></datalist>
+            <button class="btn btn-outline-success my-2 my-sm-0" onclick="returnObj.show()" style="background-color: black;">GO</button>
+          </div>
+        </a>
+        </div>
+      </nav>
+
+    <div style="margin-top: 10px;">
+            <div style="background-color:#00ccff;height: 11mm;">
+                <h5 style="padding-left: 4cm;color: white;font-weight: bold;padding-top: 5px;" id="headline"></h5>
+			</div><br>
+			<div id="maindiv" style="margin-left: 4cm;"></div>
+	</div>
+
+    <footer class="page-footer font-small" id="panel-footer">
+		<div class="footer-copyright text-center py-1" style="font-size: 3mm;font-family: 'Times New Roman', Times, serif;">
+		  Powered by web-tech project. All Rights Reserved.
+		</div>
+		<div class="footer-copyright text-center py-1" style="font-size: 3mm;font-family: 'Times New Roman', Times, serif;">
+		  Copyright@2020
+		</div>
+	</footer>
+
+  </body>
+</html>

@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="Images/logo7.PNG" type="image/jpg"/>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+      #panel-footer{
+        background-color:#404040;
+        border-color: #337ab7;
+        color: #FFFFFF;
+      
+      }
+      input[type=submit] {
+		    background-color:skyblue;
+		    color: white;
+		    border: none;
+		    border-radius: 4px;
+		    cursor: pointer;
+            width: 9%;
+            height: 11mm;
+	  }
+      .vertical { 
+            border-left: 2px solid black; 
+            height: 85px; 
+            position:absolute; 
+            left: 27.2%; 
+            margin-top: 3mm;
+        }
+        th , td  {
+          border: 1px grey;
+          border-collapse: collapse;
+          height: 10mm;
+          padding-left: 10px;
+        }
+        table tr:nth-child(odd) {
+          background-color: #e6f9ff	;
+        }
+        table tr:nth-child(even) {
+          background-color: #ffffff;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular.min.js"></script>
+    <script>
+           var RC = angular.module('RC', []);
+          RC.controller("ApplicantController", function ($scope, $http) {
+              $scope.IsVisible = false;
+              $scope.errordiv = false;
+              $scope.originalApplicant = {
+                  rcnum: '',
+              };
+
+              $scope.Applicant = angular.copy($scope.originalApplicant);
+
+              $scope.submitForm = function () 
+              {
+                  $scope.disableInputs = true;
+                  $http.post("http://127.0.0.1:5000/api/v1/checkRCStatus",$scope.Applicant).success(function(data,status,header,config)
+                  {
+                      console.log(data);
+                      $scope.result = data;
+                      if($scope.result.found == 1)
+                          $scope.IsVisible = true;
+                      else
+                          $scope.errordiv = true;
+                  }).
+                  error(function(error) {
+                      alert("Invalid vehicle number!")
+                      console.log(error);
+                  });
+              };
+              $scope.resetForm = function () {
+                  $scope.Applicant = angular.copy($scope.OriginalApplicant);
+                  $scope.disableInputs = false;
+                  $scope.IsVisible = false;
+                  $scope.errordiv = false;
+              };
+
+          });
+    </script>
+    <title>Vahan | e-Services</title>
+</head>
+  <body>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    
+    <div style="background-color:#00205c;height: 11mm;"></div>
+    <div class="logo-header-section">
+		<div class="container">
+			<div class="inline-section vertical-right-divider" style="float: left;">
+					<div id="logo" style="width: 5cm;padding-top: 10%;" class="navbar-brand">
+						<a href="https://parivahan.gov.in/parivahan/en" title="Home">
+							<img src="Images/logo3.png" class="emblem-resize" alt="Logo" ></a>
+					</div>
+				 
+			</div>
+			<div class = "vertical"></div> 
+			<div class="inline-section fix-width" style="margin-left: 6cm">
+				<div class="govt-india" style="font-size: 22px;padding-top: 2%;">
+					Government of India 
+				</div>
+				<div class="slogan-name" style="font-size: 30px;font-weight: bolder;font-family: 'Times New Roman', Times, serif;">
+					MINISTRY OF ROAD TRASPORT &amp; HIGHWAYS       
+				</div>
+			</div>
+		</div>
+	  </div>
+	  
+	  <nav class="navbar navbar-expand-lg navbar-light" style="margin-top: 5mm;background-color:#005a84 ;">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active" style="margin-left: 6cm;">
+              <a class="nav-link" href="index.html" id="item" style="color: white;text-shadow: 5px 5px 4px black">Home</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+    <div style="margin-top: 10px;" ng-app="RC" ng-controller="ApplicantController" style="align-content: center;">
+        <div style="border: thin dotted;width: 70%;margin-left: 14%;">
+            <div style="background-color:#cceeff;height: 11mm;border-radius: 10px;margin: 5px;">
+                <p style="color: black;padding-top: 5px;padding-left: 20px;font-weight: 600;font-size: 5mm;" id="headline">KNOW YOUR RC STATUS</p>
+            </div>
+            
+            <br>
+            <div ng-show='errordiv' style="text-align: center;margin-left: 25%;margin-right: 25%;height: 1cm;padding-top: 7px;font-size: 18px;">RC Not Found</div>
+            <br>
+
+            <form name="rcform" class="form-horizontal" ng-submit="submitForm()" role="form" style="padding-left: 30%;">
+                <div class="form-group row">
+                    <label for="rcnum" class="control-label">Enter Vehicle Number : </label>
+                    <div class="col-sm-4">
+                        <input type="text" id="rcnum" name="rcnum" class="form-control" ng-model="Applicant.rcnum" ng-required="true" ng-pattern="/^[A-Z]{2}/" ng-disabled="disableInputs" placeholder="" />
+                        <span ng-show="rcform.rcnum.$error.pattern">Not a valid Vehicle Number</span>
+                    </div>
+                </div>
+                <input type="submit" value="Search Vehicle" class="btn col-sm-offset-3" style="width: 17%;margin-left: 2cm;background-color: green;"/> 
+                <input type="reset" value="Reset" ng-click="resetForm()" class="btn col-sm-offset-3" style="background-color: red;width: 14%;text-align: center;color: white;height: 42px;"/> <br/>
+            </form>
+            <br>
+
+            <div ng-show="IsVisible">
+              <p style="text-align: center;"><u><b>Vehicle Details Showing in Registering Authority</b></u></p>
+              <table style="margin: 2%;width: 96%;">
+                <tr>
+                    <th>Registering Authority :</th>
+                    <td>{{result.RTO}}</td>
+                    <th></th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Registration No:</th>
+                    <td>{{ result.rcnum }}</td>
+                    <th>Registration Date:</th>
+                    <td>{{ result.dor }}</td>
+                </tr>
+                <tr>
+                    <th>Chassis No:</th>
+                    <td>{{ result.chassis }}</td>
+                    <th>Engine No:</th>
+                    <td>{{ result.engine }}</td>
+                </tr>
+                <tr>
+                    <th>Owner Name:</th>
+                    <td>{{ result.owner }}</td>
+                </tr>
+                <tr>
+                    <th>Vehicle Class:</th>
+                    <td>{{ result.cov }}</td>
+                    <th>Model:</th>
+                    <td>{{ result.model }}</td>
+                </tr>
+                <tr>
+                    <th>Validity:</th>
+                    <td>{{ result.validity }}</td>
+                    <th>RC Status:</th>
+                    <td>{{ result.status }}</td>
+                </tr>
+              </table>
+            </div>
+            </div>
+          </div>
+        <br>
+	</div>
+
+    <footer class="page-footer font-small" id="panel-footer">
+		<div class="footer-copyright text-center py-1" style="font-size: 3mm;font-family: 'Times New Roman', Times, serif;">
+		  Powered by web-tech project. All Rights Reserved.
+		</div>
+		<div class="footer-copyright text-center py-1" style="font-size: 3mm;font-family: 'Times New Roman', Times, serif;">
+		  Copyright@2020
+		</div>
+	</footer>
+
+  </body>
+</html>
